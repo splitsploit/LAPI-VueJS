@@ -6,13 +6,14 @@ use App\Models\Skill;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSkillRequest;
+use App\Http\Resources\V1\SkillCollection;
 use App\Http\Resources\V1\SkillResource;
 
 class SkillController extends Controller
 {
     public function index()
     {
-        return response()->json('Skill Index');
+        return new SkillCollection(Skill::paginate(5));
     }
 
     public function show(Skill $skill)
