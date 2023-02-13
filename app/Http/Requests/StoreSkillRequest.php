@@ -27,7 +27,7 @@ class StoreSkillRequest extends FormRequest
         return [
             'name' => ['required', 'min:3', 'max:20'],
             // 'slug' => ['required', 'unique:skills,slug,' . $this->skill->Id]
-            'slug' => ['required', Rule::unique('skills')->ignore($this->skill->id)],
+            'slug' => ['required', Rule::unique('skills')->ignore($this->skill)],
         ];
     }
 }
